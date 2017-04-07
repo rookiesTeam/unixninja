@@ -1,0 +1,11 @@
+{
+  "name": "unixninja",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rookiesTeam/unixninja.git",
+  "author": "Javier Provecho, Ismael Taboada, Julio Gracia",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "4.0.0-alpha.6"
+  }
+}
