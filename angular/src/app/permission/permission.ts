@@ -45,9 +45,7 @@ export class Permission {
   get hex(): string{
     let res="";
     for(let key in this._permission){
-      res += (4*this._permission[key].read +
-              2*this._permission[key].write +
-              this._permission[key].exec);
+      res += this._permission[key].hex;
     }
     return res;
   }
@@ -55,42 +53,33 @@ export class Permission {
   get binary(): string{
     let res="";
     for(let key in this._permission){
-      res += '0';
-      res += (+this._permission[key].read);
-      res += (+this._permission[key].write);
-      res += (+this._permission[key].exec);
+      res += this._permission[key].binary;
     }
     return res;
   }
 
   get verbose(): string{
-
-    function v(permission){
-
-      let res = '';
-      res += (permission.read) ? 'r' : '-';
-      res += (permission.write) ? 'w' : '-';
-      res += (permission.exec) ? 'x' : '-';
-      return res;
-
+    let res = '';
+    for(let key in this._permission){
+      res += this._permission[key].verbose;
     }
-
-    return v(this._permission.special) +
-           v(this._permission.user) +
-           v(this._permission.group) +
-           v(this._permission.other); 
+    return res;
   }
   
   get command(): string{
     return 'chmod ' + this.hex + ' <file>';
   }
 
-  set hex(hexNumber:string){
+  set hex(hex:string){
 
   }
   
-  set binary(binaryNumber:string){
+  set binary(binary:string){
 
+  }
+
+  set verbose(verbose:string){
+    
   }
 
 }
@@ -130,4 +119,28 @@ class PermGroup{
   set exec(e:boolean){
     this._exec = e;
   }
+
+  get hex(): string{
+    let res='';
+    res += (4*(+this._read) +
+            2*(+this._write) +
+            (+this._exec));
+    return res;
+  }
+
+  get binary(): string{
+    let res = '0';
+    res += (+this._read);
+    res += (+this._write);
+    res += (+this._exec);
+    return res;
+  }
+
+  get verbose(): string{
+      let res = '';
+      res += (this._read) ? 'r' : '-';
+      res += (this._write) ? 'w' : '-';
+      res += (this._exec) ? 'x' : '-';
+      return res;
+    }
 }
