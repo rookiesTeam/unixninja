@@ -13,24 +13,24 @@
       <tbody>
       <tr>
         <th scope="row">R</th>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
+        <td><input type="checkbox" [(ngModel)]=permission.special.read></td>
+        <td><input type="checkbox" [(ngModel)]=permission.user.read></td>
+        <td><input type="checkbox" [(ngModel)]=permission.group.read></td>
+        <td><input type="checkbox" [(ngModel)]=permission.other.read></td>
       </tr>
       <tr>
         <th scope="row">W</th>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
+        <td><input type="checkbox" [(ngModel)]=permission.special.write></td>
+        <td><input type="checkbox" [(ngModel)]=permission.user.write></td>
+        <td><input type="checkbox" [(ngModel)]=permission.group.write></td>
+        <td><input type="checkbox" [(ngModel)]=permission.other.write></td>
       </tr>
       <tr>
         <th scope="row">E</th>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
-        <td><input type="checkbox" ></td>
+        <td><input type="checkbox" [(ngModel)]=permission.special.exec></td>
+        <td><input type="checkbox" [(ngModel)]=permission.user.exec></td>
+        <td><input type="checkbox" [(ngModel)]=permission.group.exec></td>
+        <td><input type="checkbox" [(ngModel)]=permission.other.exec></td>
       </tr>
       </tbody>
     </table>
@@ -41,7 +41,7 @@
       <label for="binaryInput">Binary</label>
       <label class="sr-only" for="binaryInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" name="binaryInput" id="binaryInput" placeholder="">
+        <input type="text" class="form-control" name="binaryInput" id="binaryInput" placeholder="" [(ngModel)]="permission.binary">
         <div class="input-group-addon">Copy</div>
       </div>
     </div>
@@ -49,7 +49,7 @@
       <label for="hexadecimalInput">Hex</label>
       <label class="sr-only" for="hexadecimalInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" name="hexadecimalInput" id="hexadecimalInput" placeholder="">
+        <input type="text" class="form-control" name="hexadecimalInput" id="hexadecimalInput" placeholder="" [(ngModel)]="permission.hex">
         <div class="input-group-addon">Copy</div>
       </div>
     </div>
@@ -57,7 +57,7 @@
       <label for="verboseInput">Verbose</label>
       <label class="sr-only" for="verboseInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" name="verboseInput" id="verboseInput" placeholder="">
+        <input type="text" class="form-control" name="verboseInput" id="verboseInput" placeholder="" [(ngModel)]="permission.verbose">
         <div class="input-group-addon">Copy</div>
       </div>
     </div>
@@ -77,8 +77,8 @@
       <label for="commandInput">Command</label>
       <label class="sr-only" for="commandInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <input type="text" class="form-control" id="commandInput" placeholder="">
-        <div class="input-group-addon">Copy</div>
+        <input type="text" class="form-control" id="commandInput" placeholder="" [(ngModel)]="permission.command">
+        <div class="input-group-addon" (click)="debug()">Copy</div>
       </div>
     </div>
   </div>
