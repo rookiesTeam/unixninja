@@ -20,7 +20,6 @@ export class PopoverButtonComponent implements OnInit {
 
   copy = (event) => {
     this.clipboard.copy(''+this.text);
-    console.log('Copy "'+this.text+'" to clipboard');
     this.copied.emit(event);
     this.timer = setTimeout(() => this.hidePopOver.emit(event), 500);
   }
