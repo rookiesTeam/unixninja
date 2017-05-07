@@ -1,0 +1,14 @@
+<pop-over #copyPopOver
+  [my]="'center top'"
+  [at]="'center bottom'"
+  [x-offset]="20"
+  [y-offset]="20"
+  >
+  <div class="arrow_box copy-pop-over">
+    Copied!
+  </div>
+</pop-over>
+
+<app-popover-button [text]="text"
+  (copied)='copyPopOver.show($event)'
+  (mouseleave)='copyPopOver.hide($event)'></app-popover-button>
