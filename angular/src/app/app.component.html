@@ -42,7 +42,7 @@
       <label class="sr-only" for="binaryInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <input type="text" class="form-control" name="binaryInput" id="binaryInput" placeholder="" [(ngModel)]="permission.binary">
-        <div class="input-group-addon">Copy</div>
+        <div class="input-group-addon"><app-copy-to-clipboard [target]="permission.binary"></app-copy-to-clipboard></div>
       </div>
     </div>
     <div class="form-group">
@@ -50,7 +50,7 @@
       <label class="sr-only" for="hexadecimalInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <input type="text" class="form-control" name="hexadecimalInput" id="hexadecimalInput" placeholder="" [(ngModel)]="permission.hex">
-        <div class="input-group-addon">Copy</div>
+        <div class="input-group-addon"><app-copy-to-clipboard [target]="permission.hex"></app-copy-to-clipboard></div>
       </div>
     </div>
     <div class="form-group">
@@ -58,7 +58,7 @@
       <label class="sr-only" for="verboseInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <input type="text" class="form-control" name="verboseInput" id="verboseInput" placeholder="" [(ngModel)]="permission.verbose">
-        <div class="input-group-addon">Copy</div>
+        <div class="input-group-addon"><app-copy-to-clipboard [target]="permission.verbose"></app-copy-to-clipboard></div>
       </div>
     </div>
   </div>
@@ -78,7 +78,7 @@
       <label class="sr-only" for="commandInput"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
         <input type="text" class="form-control" id="commandInput" placeholder="" [(ngModel)]="permission.command">
-        <div class="input-group-addon" (click)="debug()">Copy</div>
+        <div class="input-group-addon" (click)="debug()"><app-copy-to-clipboard [target]="permission.command"></app-copy-to-clipboard></div>
       </div>
     </div>
   </div>

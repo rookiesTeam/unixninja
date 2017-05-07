@@ -1,0 +1,35 @@
+a {
+  cursor: pointer;
+}
+
+.arrow_box {
+	position: relative;
+	background: #000000;
+}
+.arrow_box:after, .arrow_box:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(0, 0, 0, 0);
+	border-bottom-color: #000000;
+	border-width: 5px;
+	margin-left: -5px;
+}
+
+.copy-pop-over {
+    opacity: .8;
+    padding: 5px;
+    color: white;
+    font-size: 8pt;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
