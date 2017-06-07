@@ -8,12 +8,14 @@ import { ClipboardModule } from 'ng2-clipboard/ng2-clipboard';
 import { CopyToClipboardComponent } from './copy-to-clipboard/copy-to-clipboard.component';
 import { PopoverModule } from 'ng2-pop-over';
 import { PopoverButtonComponent } from './copy-to-clipboard/popover-button/popover-button.component';
+import { ButtonCheckbox } from './button-checkbox.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CopyToClipboardComponent,
-    PopoverButtonComponent
+    PopoverButtonComponent,
+    ButtonCheckbox
   ],
   imports: [
     BrowserModule,

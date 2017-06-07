@@ -1,12 +1,18 @@
 export class Permission {
   private _permission;
-  
+  private _flags;
+
   constructor() {
     this._permission = {
       special: new PermGroup,
       user: new PermGroup,
       group: new PermGroup,
       other: new PermGroup
+    }
+    this._flags = {
+      force: false,
+      nosymlynk: false,
+      recursively: false
     }
   }
 
@@ -65,9 +71,27 @@ export class Permission {
     }
     return res;
   }
-  
+
   get command(): string{
-    return 'chmod ' + this.hex + ' <file>';
+    let command = 'chmod';
+    command += this.appendFlags();
+    command += this.hex;
+    command += ' <file>';
+    return command;
+  }
+
+  private appendFlags() {
+    let flags = '';
+    if(this.force || this.nosymlynk || this.recursively)
+      flags += ' -';
+    if(this.force)
+      flags += 'f';
+    if(this.nosymlynk)
+      flags += 'h';
+    if(this.recursively)
+      flags += 'R';
+    flags += ' ';
+    return flags;
   }
 
   set hex(hex:string){
@@ -84,7 +108,7 @@ export class Permission {
       }
     }
   }
-  
+
   set binary(binary:string){
     if(binary.length === 16){
       this._permission.special.binary = binary.slice(0, 4);
@@ -113,6 +137,30 @@ export class Permission {
     }
   }
 
+  get force(): boolean {
+    return this._flags.force;
+  }
+
+  get nosymlynk(): boolean {
+    return this._flags.nosymlynk;
+  }
+
+  get recursively(): boolean {
+    return this._flags.recursively;
+  }
+
+  set force(new_value: boolean) {
+    this._flags.force = new_value;
+  }
+
+  set nosymlynk(new_value: boolean) {
+    this._flags.nosymlynk = new_value;
+  }
+
+  set recursively(new_value: boolean) {
+    this._flags.recursively = new_value;
+  }
+
 }
 
 class PermGroup{
@@ -134,7 +182,7 @@ class PermGroup{
   set read(r:boolean){
     this._read = r;
   }
-  
+
   get write():boolean{
     return this._write;
   }
@@ -142,7 +190,7 @@ class PermGroup{
   set write(w:boolean){
     this._write = w;
   }
-  
+
   get exec():boolean{
     return this._exec;
   }
