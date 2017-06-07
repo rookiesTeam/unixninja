@@ -8,8 +8,9 @@ import { Permission } from './permission/permission';
 })
 export class AppComponent {
   // ...
-  
+
   private permission:Permission;
+  private flags = {force: false, symlynk: false, recurs: false};
 
   constructor(){
     this.permission = new Permission;

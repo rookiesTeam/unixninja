@@ -67,10 +67,9 @@
       <label for="flagsInputGroup">Flags</label>
       <label class="sr-only" for="flagsInputGroup"></label>
       <div class="input-group mb-2 mr-sm-2 mb-sm-0" id="flagsInputGroup">
-        <input type="text" class="form-control" name="flag1Input" id="flag1Input" placeholder="">
-        <input type="text" class="form-control" name="flag2Input" id="flag2Input" placeholder="">
-        <input type="text" class="form-control" name="flag3Input" id="flag3Input" placeholder="">
-        <input type="text" class="form-control" name="flag4Input" id="flag4Input" placeholder="">
+        <label class="btn btn-secondary form-control" [(ngModel)]="permission.force" btnCheckbox>Force</label>
+        <label class="btn btn-secondary form-control" [(ngModel)]="permission.nosymlynk" btnCheckbox>No symlynk</label>
+        <label class="btn btn-secondary form-control" [(ngModel)]="permission.recursively" btnCheckbox>Recursively</label>
       </div>
     </div>
     <div class="form-group">
